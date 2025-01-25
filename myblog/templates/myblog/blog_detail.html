@@ -1,5 +1,5 @@
 {% extends "myblog/base.html" %}
-
+{% load static %}
 
 {% block title %}
 BlogDetails
@@ -8,7 +8,11 @@ BlogDetails
 {% block content %}
 
 <div class="card mb-3">
-  {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
+  {% if blog.image %}
+      <img src="{{blog.image.url}}" class="card-img-top" alt="Image Not Found">
+      {% else %}
+      <img src="{% static 'myblog/img/dumy_post_img.png' %}" class="card-img-top" alt="Default Image">
+  {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{blog.title}}</h5>
     <p class="card-text">{{blog.content}}</p>

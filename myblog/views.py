@@ -15,7 +15,7 @@ def blog_home(request):
 
 def blog_create_view(request):
     if request.method == "POST":
-        form = BlogForm(request.POST)
+        form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Blog Created successfully.')
@@ -34,7 +34,7 @@ def blog_update_view(request, pk):
     except Blog.DoesNotExist:
         raise Http404("Blog does not exist")
     if request.method == "POST":
-        form = BlogForm(request.POST, instance=ids)
+        form = BlogForm(request.POST, request.FILES, instance=ids)
         if form.is_valid():
             form.save()
             messages.success(request, 'Blog Updated successfully.')

@@ -122,9 +122,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Additional static file directories (if needed)
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Your custom static files
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',  # Your custom static files
+# ]
 
 
 # URL for serving media files
